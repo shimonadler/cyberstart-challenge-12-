@@ -1,0 +1,43 @@
+var pwd = [];
+var pass = "test";
+function sleeper(ms) {
+  return function(x) {
+    return new Promise(resolve => setTimeout(() => resolve(x), ms));
+  };
+}
+//link 1
+fetch("https://assess.cyber-fasttrack.org/challenge-files/clock-pt1?verify=qOpBYXNdw2qk3zZPDPneDg%3D%3D").then((res) => {
+      return  res.text();
+		
+})
+.then(boo =>pwd.push(boo)
+);
+
+//link 2
+fetch("https://assess.cyber-fasttrack.org/challenge-files/clock-pt2?verify=qOpBYXNdw2qk3zZPDPneDg%3D%3D").then((res) => {
+      return res.text();	
+})
+.then(boo => pwd.push(boo));
+
+//link 3
+fetch("https://assess.cyber-fasttrack.org/challenge-files/clock-pt3?verify=qOpBYXNdw2qk3zZPDPneDg%3D%3D").then((res) => {
+      return res.text();	
+})
+.then(boo =>pwd.push(boo))
+//link 4
+fetch("https://assess.cyber-fasttrack.org/challenge-files/clock-pt4?verify=qOpBYXNdw2qk3zZPDPneDg%3D%3D").then((res) => {
+      return res.text();
+})
+.then(boo => pwd.push(boo))
+//link 5
+fetch("https://assess.cyber-fasttrack.org/challenge-files/clock-pt5?verify=qOpBYXNdw2qk3zZPDPneDg%3D%3D").then((res) => {
+      return res.text();
+})
+.then(boo => pwd.push(boo)).then(function(asd){
+for(i = 0 ; i < 5;i++){
+pass.concat(pwd[i]);
+}
+}
+
+).then(sleeper(1000)).then(function(){
+window.open("https://assess.cyber-fasttrack.org/challenge-files/get-flag?verify=qOpBYXNdw2qk3zZPDPneDg%3D%3D&string=" + pwd.join(''), '_blank')});
